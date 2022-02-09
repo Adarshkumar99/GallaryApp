@@ -1,0 +1,36 @@
+<div class="container mt-4">
+  <h4 class="text-center mt-5 fw-bold">All Published Albums</h4>
+  <hr />
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-4">
+      <div class="card p-3">
+        <div class="d-flex justify-content-center px-5">
+          <%= search_form_for @q ,url: root_path do |f|%>
+          <div class="search">
+            <%= f.search_field :tags_name_eq , placeholder: "Search Tags", class: "search-input" %> <%= f.submit "Search", class: "btn btn-primary search-icon" %> <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row mt-5">
+  <% @albums.each do |album| %>
+  <div class="col-lg-4">
+    <div class="card img-card img-thumbnail">
+      <%= link_to home_show_path(id: album.id) do %> <%= image_tag(album.cover_image, class: "img-fluid img") %><br />
+      <% end %>
+      <div class="card-body">
+        <h5><strong>Title: </strong> <span><%= album.title %></span></h5>
+        <p><strong>Tag: </strong> <span class="text-muted"><%= album.all_tags %></span></p>
+        <p><strong>Created at: </strong> <span class="text-muted"> <%= album.created_at.to_date %> </span></p>
+        <p><strong>Updated at: </strong> <span class="text-muted"> <%= album.updated_at.to_date %> </span></p>
+        <p><strong>Images: </strong> <span class="text-muted"> <%= album.images.count %> </span></p>
+
+        <%= link_to 'Edit', edit_album_path(album), class: "btn btn-secondary fw-bold" %>
+      </div>
+    </div>
+    <br />
+  </div>
+  <% end %>
+</div>

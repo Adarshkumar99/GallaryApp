@@ -1,0 +1,24 @@
+<h4 class="text-center mt-5 fw-bold">  Photos </h4>
+<hr>
+<div class="card">
+  <div class="card-body">
+  <p class="card-text">Description: <%= @album.description %> </p>
+  </div>
+</div>
+
+<div class="row mt-5">
+    <% @album.images.each do |image|%>
+    <div class="col-lg-4 mt-3">
+        <div class="card img-card img-thumbnail">
+        <%= link_to image, target: "_blank" do %>
+            <%= image_tag(image,class:'img-fluid img') %><br /><% end %>
+            <div class="card-body">
+            <%= link_to "View", image, target: "_blank", class: "btn btn-secondary fw-bold"  %>
+                 </div>
+        </div>
+    </div>
+    <% end %>
+</div>
+
+<br><br>
+<%= link_to 'Back', root_path, class: "btn btn-secondary text-white fw-bold" %>

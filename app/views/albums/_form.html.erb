@@ -1,0 +1,47 @@
+<div class="card mt-5">
+    <div class="card-body">
+        <%= form_with model: album, local: true do |form| %>
+          <div class="field form-group">
+             <%= form.label :title %>
+            <%= form.text_field :title, required: true, class: "form-control", placeholder: "Title" %> <% album.errors.full_messages_for(:title).each do |message| %>
+            <div style="color: red"><%= message %></div>
+            <% end %>
+
+        </div>
+        <br />
+        <div class="field form-group">
+        <%= form.label :description %>
+            <%= form.text_area :description, required: true, class: "form-control", placeholder: "Description" %> <% album.errors.full_messages_for(:description).each do |message| %>
+            <div style="color: red"><%= message %></div>
+            <% end %>
+        </div>
+        <br />
+        <div class="field">
+            <%= form.label :cover_image %> <%= form.file_field :cover_image, class: "form-control" %>
+        </div>
+        <br />
+
+        <div class="field form-group">
+        <%= form.label :tags %>
+            <%= form.text_area :all_tags, class: "form-control", placeholder: "tag" %> <% album.errors.full_messages_for(:tag).each do |message| %>
+            <div style="color: red"><%= message %></div>
+            <% end %>
+        </div>
+        <br />
+
+        <div class="field">
+            <%= form.label :image %> <%= form.file_field :images, :multiple =>true, class: "form-control" %>
+        </div>
+        <br />
+
+        <div class="field">
+            <%= form.label :publish %> <%= form.check_box :published %>
+        </div>
+        <br />
+
+        <div>
+            <%= form.submit class: "btn btn-secondary fw-bold" %>
+        </div>
+        <% end %>
+    </div>
+</div>
