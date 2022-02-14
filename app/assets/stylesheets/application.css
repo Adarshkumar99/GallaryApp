@@ -30,6 +30,9 @@
 hr{
   border: 1px solid rgb(0, 0, 0);
 }
+h5,p{
+  color: black;
+}
 
 
 .img{
