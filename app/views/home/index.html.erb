@@ -20,7 +20,7 @@
     <div class="card img-card img-thumbnail">
       <%if album.cover_image.attached?%>
       <%= link_to home_show_path(id: album.id) do %> <%= image_tag(album.cover_image, class: "img-fluid img") %><br />
-      <% end %>
+        <% end %>
       <% end %>
       <div class="card-body">
         <h5><strong>Title: </strong> <span><%= album.title %></span></h5>
