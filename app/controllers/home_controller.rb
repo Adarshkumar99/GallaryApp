@@ -13,7 +13,7 @@ class HomeController < ApplicationController
     end
   
     
-    @q = Album.ransack(params[:q])
+    @q = Album.where(published: true).ransack(params[:q])
     @albums = @q.result.includes(:tags)
   
 

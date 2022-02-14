@@ -6,6 +6,7 @@
   </div>
 </div>
 
+  <!-- images start -->
 <div class="row mt-5">
     <% @album.images.each do |image|%>
     <div class="col-lg-4 mt-3">
@@ -20,14 +21,38 @@
     </div>
     <% end %>
 </div>
+<!-- image end-->
 
-
-
-
-
-<br>
-
-
-
-<%=  render 'add_photos', album:@album %><br><br>
-<%= link_to 'Back', albums_path, class: "btn btn-secondary fw-bold" %><br>
+<!-- Button-->
+<div class="d-flex flex-row-reverse bd-highlight mt-4">
+  <div class="p-2 bd-highlight"><%= link_to 'Back', albums_path, class: "btn btn-secondary fw-bold" %></div>
+  <div class="p-2 bd-highlight">
+  <!-- Button trigger modal -->
+<button type="button" class="btn btn-secondary fw-bold" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Add Images
+</button>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      <div class="card">
+      <div class="card-body">
+          <%= form_with model: @album do |form| %>
+          <div class="field">
+              <%= form.label :image %> <%= form.file_field :images, :multiple =>true, class: "form-control" %>  <br /> 
+							<%= form.submit "Add Image", class: "btn btn-secondary fw-bold" %>
+          </div>
+					<% end %>
+      </div>
+  </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+  </div>
+  <!-- Button end-->

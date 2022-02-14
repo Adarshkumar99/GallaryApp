@@ -6,6 +6,7 @@
   </div>
 </div>
 
+
 <div class="row mt-5">
     <% @album.images.each do |image|%>
     <div class="col-lg-4 mt-3">
@@ -20,5 +21,8 @@
     <% end %>
 </div>
 
-<br><br>
-<%= link_to 'Back', root_path, class: "btn btn-secondary text-white fw-bold" %>
+<div class="d-flex flex-row-reverse bd-highlight mt-4">
+  <div class="p-2 bd-highlight">
+  <%= link_to 'Back', root_path, class: "btn btn-secondary text-white fw-bold" %></div> 
+</div>
+
