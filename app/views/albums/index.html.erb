@@ -25,9 +25,8 @@
 <%= image_tag(album.cover_image, class: "img-fluid img") %><br><% end %>
 <%end%>
   <div class="card-body">
-  <%= link_to album do %>
   <h5><strong>Title: </strong> <span><%= album.title %></span></h5>
-  <p><strong>Tag: </strong> <span class="text-muted"><%= album.all_tags %></span></p><%end%>
+  <p><strong>Tag: </strong> <span class="text-muted"><%= album.all_tags %></span></p>
   <p><strong>Created at: </strong> <span class="text-muted"> <%= album.created_at.to_date %> </span></p>
   <p><strong>Updated at: </strong> <span class="text-muted"> <%= album.updated_at.to_date %> </span></p>
   <p><strong>Images: </strong> <span class="text-muted"> <%= album.images.count %> </span></p>

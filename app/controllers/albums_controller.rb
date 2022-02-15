@@ -39,7 +39,7 @@ class AlbumsController < ApplicationController
     if @album.update(album_params)      
       redirect_to @album,  notice: 'Album was successfully updated.' 
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 

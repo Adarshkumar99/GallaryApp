@@ -17,13 +17,15 @@
         </div>
         <br />
         <div class="field">
-            <%= form.label :cover_image %> <%= form.file_field :cover_image, class: "form-control" %>
+            <%= form.label :cover_image %> <%= form.file_field :cover_image, class: "form-control" %><% album.errors.full_messages_for(:cover_image).each do |message| %>
+                <div style="color: red"><%= message %></div>
+            <% end %>
         </div>
         <br />
 
         <div class="field form-group">
         <%= form.label :tags %>
-            <%= form.text_area :all_tags, class: "form-control", placeholder: "tag" %> <% album.errors.full_messages_for(:tag).each do |message| %>
+            <%= form.text_area :all_tags, class: "form-control", placeholder: "tag" %> <% album.errors.full_messages_for(:all_tags).each do |message| %>
             <div style="color: red"><%= message %></div>
             <% end %>
         </div>
